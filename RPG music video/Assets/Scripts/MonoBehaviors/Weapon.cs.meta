@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 4d3dcc7f4680b4b6a9b0e56e11bbc860
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - animator: {instanceID: 0}
+  - ammoPrefab: {instanceID: 0}
+  - soundToPlay: {fileID: 8300000, guid: 916e251d21422404aa0b503acb06c46f, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
