@@ -6,14 +6,14 @@ public class DialogueTrigger : MonoBehaviour
 {
     public GameObject dialogueManager;
     BoxCollider2D boxCollider2D;
-    SpriteRenderer renderer;
+    SpriteRenderer rend;
 
     // Use this for initialization
     void Start()
     {
         boxCollider2D = GetComponent<BoxCollider2D>();
-        renderer = GetComponent<SpriteRenderer>();
-        renderer.enabled = false;
+        rend = GetComponent<SpriteRenderer>();
+        rend.enabled = false;
     }
 
     void OnTriggerEnter2D(Collider2D collision)

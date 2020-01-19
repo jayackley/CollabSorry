@@ -9,18 +9,10 @@ public class Dialogue : MonoBehaviour {
     public int index;
     public float typingSpeed;
     public Animator textDisplayAnim;
-    public GameObject continueButton;
 
     private void Start()
     {
         StartCoroutine(Type());
-    }
-
-    private void Update()
-    {
-        if(textDisplay.text == sentences[index]){
-            continueButton.SetActive(true);
-        }
     }
 
     IEnumerator Type(){
@@ -33,7 +25,6 @@ public class Dialogue : MonoBehaviour {
 
     public void NextSentence(){
         textDisplayAnim.SetTrigger("Change");
-        continueButton.SetActive(false);
 
         if(index < sentences.Length -1){
             index++;
@@ -41,7 +32,6 @@ public class Dialogue : MonoBehaviour {
             StartCoroutine(Type());
         } else{
             textDisplay.text = "";
-            continueButton.SetActive(false);
         } 
 
     }
