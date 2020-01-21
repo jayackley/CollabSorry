@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Coin
   m_EditorClassIdentifier: 
   objectName: coin
-  sprite: {fileID: 21300008, guid: 779c51782da5847a2b89b2e188a5f35c, type: 3}
+  sprite: {fileID: 21300000, guid: 3da02771bb4a041d3a0ebff733edfc64, type: 3}
   quantity: 0
   stackable: 1
   itemType: 0

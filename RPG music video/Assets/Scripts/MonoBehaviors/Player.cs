@@ -5,7 +5,7 @@ public class Player : Character
 {
     public HealthBar healthBarPrefab;
     HealthBar healthBar;
-
+    public GameObject dialogueManager;
     public Inventory inventoryPrefab;
     Inventory inventory;
     public HitPoints hitPoints;
@@ -18,6 +18,7 @@ public class Player : Character
     {
         sound = GetComponent<AudioSource>();
         ResetCharacter();
+        dialogueManager = GameObject.Find("DialogueManager");
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -31,6 +32,12 @@ public class Player : Character
                 {
 
                     case Item.ItemType.COIN:
+                        dialogueManager.GetComponent<Dialogue>().NextSentence();
+                        shouldDisappear = inventory.AddItem(hitObject);
+                        shouldDisappear = true;
+                        break;
+                    case Item.ItemType.SWORD:
+                        dialogueManager.GetComponent<Dialogue>().NextSentence();
                         shouldDisappear = inventory.AddItem(hitObject);
                         shouldDisappear = true;
                         break;

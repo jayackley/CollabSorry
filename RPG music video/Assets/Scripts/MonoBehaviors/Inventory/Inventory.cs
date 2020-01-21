@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour 
 {
     public GameObject slotPrefab;
-    public const int numSlots = 1;
+    public const int numSlots = 2;
     Image[] itemImages = new Image[numSlots];
     Item[] items = new Item[numSlots];
     GameObject[] slots = new GameObject[numSlots];
@@ -35,6 +35,22 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < items.Length; i++)
         {
+
+
+            if (items[i] == null && itemToAdd.sword == true)
+            {
+                items[i] = Instantiate(itemToAdd);
+                items[i].quantity = 1;
+                itemImages[i].sprite = itemToAdd.sprite;
+                itemImages[i].enabled = true;
+                Slot slotScript = slots[i].gameObject.GetComponent<Slot>();
+                Text quantityText = slotScript.qtyText;
+                quantityText.enabled = true;
+                quantityText.fontSize = 30;
+                quantityText.text = "∞";
+                return true;
+            }
+
             if (items[i] != null && items [i].itemType == itemToAdd.itemType && itemToAdd.stackable == true)
             {
                 items[i].quantity = items[i].quantity + 1;
