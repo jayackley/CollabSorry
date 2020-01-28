@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour
     Camera localCamera;
     float positiveSlope;
     float negativeSlope;
+    public GameObject playerObject;
     enum Quadrant
     {
         East,
@@ -43,7 +44,6 @@ public class Weapon : MonoBehaviour
         animator = GetComponent<Animator>();
         isFiring = false;
         localCamera = Camera.main;
-
         Vector2 lowerLeft = localCamera.ScreenToWorldPoint(new Vector2(0, 0));
         Vector2 upperRight = localCamera.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
         Vector2 upperLeft = localCamera.ScreenToWorldPoint(new Vector2(0, Screen.height));
@@ -56,7 +56,7 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && playerObject.GetComponent<Player>().hasSword == true)
         {
             isFiring = true;
             FireAmmo();

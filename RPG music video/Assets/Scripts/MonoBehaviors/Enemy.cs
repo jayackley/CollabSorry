@@ -3,12 +3,11 @@ using System.Collections;
 
 public class Enemy : Character
 {
+    public GameObject deathSpawn;
     GameObject soundManager;
     public int damageStrength;
     Coroutine damageCoroutine;
     public float hitPoints;
-    AudioSource sound;
-    public AudioClip hitSound;
     public float Volume;
 
     private void Start()
@@ -18,7 +17,6 @@ public class Enemy : Character
 
     private void OnEnable()
     {
-        sound = GetComponent<AudioSource>();
         ResetCharacter();
     }
 
@@ -31,13 +29,14 @@ public class Enemy : Character
     {
         while (true)
         {
-            sound.PlayOneShot(hitSound, Volume);
+            soundManager.GetComponent<SoundManager>().GremlinHit();
             StartCoroutine(FlickerCharacter());
             hitPoints = hitPoints - damage;
             if (hitPoints <= float.Epsilon)
             {
                 soundManager.GetComponent<SoundManager>().GremlinDie();
                 KillCharacter();
+                Instantiate(deathSpawn, transform.position, Quaternion.identity);
                 break;
             }
 

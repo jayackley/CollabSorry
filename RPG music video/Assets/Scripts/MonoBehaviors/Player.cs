@@ -12,7 +12,7 @@ public class Player : Character
     AudioSource sound;
     public AudioClip itemGrab;
     public AudioClip gotHit;
-
+    public bool hasSword;
 
     private void OnEnable()
     {
@@ -40,6 +40,7 @@ public class Player : Character
                         dialogueManager.GetComponent<Dialogue>().NextSentence();
                         shouldDisappear = inventory.AddItem(hitObject);
                         shouldDisappear = true;
+                        hasSword = true;
                         break;
                     case Item.ItemType.HEALTH:
                         shouldDisappear = AdjustHitPoints(hitObject.quantity);

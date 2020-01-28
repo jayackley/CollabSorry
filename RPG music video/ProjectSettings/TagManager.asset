@@ -8,6 +8,8 @@ TagManager:
   - CanBePickedUp
   - VirtualCamera
   - ApplePal
+  - Vase
+  - Breakable
   layers:
   - Default
   - TransparentFX

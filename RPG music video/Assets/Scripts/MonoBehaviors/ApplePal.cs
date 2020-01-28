@@ -4,19 +4,19 @@ using System.Collections;
 public class ApplePal : Character
 {
     public Animator animator;
-    public int damageStrength;
     Coroutine damageCoroutine;
     public float hitPoints;
     AudioSource sound;
     public AudioClip hitSound;
-    public AudioClip gremlinDie;
     public float Volume;
+    public bool lostArm;
 
     private void OnEnable()
     {
         sound = GetComponent<AudioSource>();
         ResetCharacter();
         animator = GetComponent<Animator>();
+        lostArm = false;
     }
 
     public override void ResetCharacter()
@@ -34,6 +34,7 @@ public class ApplePal : Character
             if (hitPoints <= float.Epsilon)
             {
                 animator.SetBool("isBleeding", true);
+                lostArm = true;
                 break;
             }
 

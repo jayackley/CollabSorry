@@ -21,7 +21,7 @@ public class Ammo : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision is BoxCollider2D && collision.gameObject.tag == "ApplePal")
+        if (collision is BoxCollider2D && collision.gameObject.tag == "ApplePal" && collision.gameObject.GetComponent<ApplePal>().lostArm == false)
         {
             ApplePal applePal = collision.gameObject.GetComponent<ApplePal>();
             StartCoroutine(applePal.DamageCharacter(damageInflicted, 1.0f));
@@ -36,8 +36,16 @@ public class Ammo : MonoBehaviour
 
             gameObject.SetActive(false);
         }
-        
-       
+
+        if (collision is BoxCollider2D && collision.gameObject.tag == "Breakable")
+        {
+            Breakables breakables = collision.gameObject.GetComponent<Breakables>();
+            breakables.Break();
+            breakables.GetComponent<BoxCollider2D>().enabled = false;
+            gameObject.SetActive(false);
+        }
+
+
 
     }
 }

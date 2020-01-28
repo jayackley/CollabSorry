@@ -20,7 +20,7 @@ public class Wander : MonoBehaviour
     public float currentAngle = 0;
     CircleCollider2D circleCollider;
 
-    void Start()
+    void OnEnable()
     {
         animator = GetComponent<Animator>();
         currentSpeed = wanderSpeed;

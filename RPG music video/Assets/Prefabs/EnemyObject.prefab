@@ -251,10 +251,9 @@ MonoBehaviour:
   maxHitPoints: 6
   startingHitPoints: 6
   characterCategory: 1
+  deathSpawn: {fileID: 1594630563893350, guid: f55260488faf4434fa0ec36b97dd9319, type: 2}
   damageStrength: 1
   hitPoints: 6
-  hitSound: {fileID: 8300000, guid: e0e48502c0b114e2e864408fe4f83fd0, type: 3}
-  gremlinDie: {fileID: 8300000, guid: 4c177617e0c3f4492aa10a5e6fdec32c, type: 3}
   Volume: 0.5
 --- !u!212 &212213613046954864
 SpriteRenderer:

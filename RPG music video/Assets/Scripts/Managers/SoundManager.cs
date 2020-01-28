@@ -6,6 +6,8 @@ public class SoundManager : MonoBehaviour
 {
 
     public AudioClip gremlinDie;
+    public AudioClip gremlinHit;
+    public AudioClip breakableBreak;
     AudioSource sound;
     float hitPoints;
 
@@ -15,11 +17,20 @@ public class SoundManager : MonoBehaviour
     {
         sound = GetComponent<AudioSource>();
     }
-    // Update is called once per frame
+    public void GremlinHit()
+    {
+        sound.PlayOneShot(gremlinHit);
+    }
+
+
     public void GremlinDie()
     {
         sound.PlayOneShot(gremlinDie);
     }
 
+    public void Break()
+    {
+        sound.PlayOneShot(breakableBreak);
+    }
 	
 }
