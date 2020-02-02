@@ -16,6 +16,10 @@ public class OptionManager : MonoBehaviour
     public GameObject spacePanel;
     public int sentenceIndex;
     public GameObject promptPanel;
+    public GameObject dialogueHolder;
+    public GameObject playerObject;
+    public GameObject gremlinVoice;
+    public GameObject palVoice;
 
     void Start()
     {
@@ -29,11 +33,30 @@ public class OptionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (promptPanel.GetComponent<PromptMan>().isTyping == true)
+        if (promptPanel.GetComponent<PromptMan>().isTyping == true && playerObject.GetComponent<InteractionManager>().whosTalking == "Pal")
         {
             optionOne.SetActive(false);
             optionTwo.SetActive(false);
             optionThree.SetActive(false);
+            palVoice.GetComponent<AudioSource>().volume = 100;
+        }
+
+        else if (promptPanel.GetComponent<PromptMan>().isTyping == true && playerObject.GetComponent<InteractionManager>().whosTalking == "Demon")
+        {
+            optionOne.SetActive(false);
+            optionTwo.SetActive(false);
+            optionThree.SetActive(false);
+            gremlinVoice.GetComponent<AudioSource>().volume = 100;
+        }
+
+        else if (sentenceIndex == 4 || sentenceIndex == 5 || sentenceIndex == 6 || sentenceIndex == 7 || sentenceIndex == 8 || sentenceIndex == 9 || sentenceIndex == 10 || sentenceIndex == 11 || sentenceIndex == 12 || sentenceIndex == 17 || sentenceIndex == 18 ||  sentenceIndex == 19 || sentenceIndex == 20 || sentenceIndex == 21 || sentenceIndex == 22 || sentenceIndex == 23 || sentenceIndex == 24 || sentenceIndex == 25)
+        {
+            optionOne.SetActive(false);
+            optionTwo.SetActive(false);
+            optionThree.SetActive(false);
+            spacePanel.SetActive(true);
+            palVoice.GetComponent<AudioSource>().volume = 0;
+            gremlinVoice.GetComponent<AudioSource>().volume = 0;
         }
 
         else if (currentSelect == 1 && promptPanel.GetComponent<PromptMan>().isTyping == false)
@@ -41,6 +64,8 @@ public class OptionManager : MonoBehaviour
             optionOne.SetActive(true);
             optionTwo.SetActive(true);
             optionThree.SetActive(true);
+            palVoice.GetComponent<AudioSource>().volume = 0;
+            gremlinVoice.GetComponent<AudioSource>().volume = 0;
             optionOne.GetComponent<Image>().color = UnityEngine.Color.red;
             optionTwo.GetComponent<Image>().color = UnityEngine.Color.blue;
             optionThree.GetComponent<Image>().color = UnityEngine.Color.blue;
@@ -50,6 +75,8 @@ public class OptionManager : MonoBehaviour
             optionOne.SetActive(true);
             optionTwo.SetActive(true);
             optionThree.SetActive(true);
+            palVoice.GetComponent<AudioSource>().volume = 0;
+            gremlinVoice.GetComponent<AudioSource>().volume = 0;
             optionOne.GetComponent<Image>().color = UnityEngine.Color.blue;
             optionTwo.GetComponent<Image>().color = UnityEngine.Color.red;
             optionThree.GetComponent<Image>().color = UnityEngine.Color.blue;
@@ -59,6 +86,8 @@ public class OptionManager : MonoBehaviour
             optionOne.SetActive(true);
             optionTwo.SetActive(true);
             optionThree.SetActive(true);
+            palVoice.GetComponent<AudioSource>().volume = 0;
+            gremlinVoice.GetComponent<AudioSource>().volume = 0;
             optionOne.GetComponent<Image>().color = UnityEngine.Color.blue;
             optionTwo.GetComponent<Image>().color = UnityEngine.Color.blue;
             optionThree.GetComponent<Image>().color = UnityEngine.Color.red;
@@ -102,25 +131,297 @@ public class OptionManager : MonoBehaviour
         //Choosing an Option
         //&& Registering Score
 
-        else if (Event.current.Equals(Event.KeyboardEvent("space")) && currentSelect == 1 && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        else if (sentenceIndex == 0 && currentSelect == 1 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
         {
-            promptText.GetComponent<TextMeshProUGUI>().text = "You Added Ten!";
+            sentenceIndex = 1;
             scoreObject.GetComponent<ScoreManager>().score += 10;
-            spacePanel.SetActive(true);
-            currentSelect = 0;
+
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 1;
+
         }
-        else if (Event.current.Equals(Event.KeyboardEvent("space")) && currentSelect == 2 && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        else if (sentenceIndex == 0 && currentSelect == 2 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
         {
-            promptText.GetComponent<TextMeshProUGUI>().text = "You Subtracted Five!";
-            scoreObject.GetComponent<ScoreManager>().score -= 5;
-            spacePanel.SetActive(true);
-            currentSelect = 0;
+            sentenceIndex = 2;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 1;
+
         }
-        else if (Event.current.Equals(Event.KeyboardEvent("space")) && currentSelect == 3 && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        else if (sentenceIndex == 0 && currentSelect == 3 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
         {
-            promptText.GetComponent<TextMeshProUGUI>().text = "You Added One!";
-            scoreObject.GetComponent<ScoreManager>().score += 1;
-            spacePanel.SetActive(true);
+            sentenceIndex = 3;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 1;
+
+        }
+        else if (sentenceIndex == 1 && currentSelect == 1 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 4;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 0;
+
+        }
+        else if (sentenceIndex == 1 && currentSelect == 2 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 5;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 0;
+
+        }
+        else if (sentenceIndex == 1 && currentSelect == 3 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 6;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 0;
+
+        }
+        else if (sentenceIndex == 2 && currentSelect == 1 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 7;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 0;
+
+        }
+        else if (sentenceIndex == 2 && currentSelect == 2 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 8;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 0;
+
+        }
+        else if (sentenceIndex == 2 && currentSelect == 3 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 9;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 0;
+
+        }
+        else if (sentenceIndex == 3 && currentSelect == 1 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 10;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 0;
+
+        }
+        else if (sentenceIndex == 3 && currentSelect == 2 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 11;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 0;
+
+        }
+        else if (sentenceIndex == 3 && currentSelect == 3 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 12;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 0;
+
+        }
+                else if (sentenceIndex == 0 && currentSelect == 1 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 1;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 1;
+
+        }
+        else if (sentenceIndex == 0 && currentSelect == 2 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 2;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 1;
+
+        }
+        else if (sentenceIndex == 0 && currentSelect == 3 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 3;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 1;
+
+        }
+        else if (sentenceIndex == 1 && currentSelect == 1 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 4;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 0;
+
+        }
+        else if (sentenceIndex == 1 && currentSelect == 2 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 5;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 0;
+
+        }
+        else if (sentenceIndex == 1 && currentSelect == 3 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 6;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 0;
+
+        }
+        else if (sentenceIndex == 2 && currentSelect == 1 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 7;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 0;
+
+        }
+        else if (sentenceIndex == 2 && currentSelect == 2 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 8;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 0;
+
+        }
+        else if (sentenceIndex == 2 && currentSelect == 3 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 9;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 0;
+
+        }
+        else if (sentenceIndex == 3 && currentSelect == 1 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 10;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 0;
+
+        }
+        else if (sentenceIndex == 3 && currentSelect == 2 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 11;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 0;
+
+        }
+        else if (sentenceIndex == 3 && currentSelect == 3 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 12;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 0;
+
+        }
+
+        //Apple Pal Dialogue Options
+
+        else if (sentenceIndex == 13 && currentSelect == 1 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 14;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 1;
+
+        }
+        else if (sentenceIndex == 13 && currentSelect == 2 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 15;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 1;
+
+        }
+        else if (sentenceIndex == 13 && currentSelect == 3 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 16;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 1;
+
+        }
+        else if (sentenceIndex == 14 && currentSelect == 1 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 17;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 0;
+
+        }
+        else if (sentenceIndex == 14 && currentSelect == 2 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 18;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 0;
+
+        }
+        else if (sentenceIndex == 14 && currentSelect == 3 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 19;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 0;
+
+        }
+        else if (sentenceIndex == 15 && currentSelect == 1 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 20;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 0;
+
+        }
+        else if (sentenceIndex == 15 && currentSelect == 2 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 21;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 0;
+
+        }
+        else if (sentenceIndex == 15 && currentSelect == 3 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 22;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 0;
+
+        }
+        else if (sentenceIndex == 16 && currentSelect == 1 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 23;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 0;
+
+        }
+        else if (sentenceIndex == 16 && currentSelect == 2 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 24;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            currentSelect = 0;
+
+        }
+        else if (sentenceIndex == 16 && currentSelect == 3 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
+        {
+            sentenceIndex = 25;
+            scoreObject.GetComponent<ScoreManager>().score += 10;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
             currentSelect = 0;
         }
 
@@ -128,13 +429,11 @@ public class OptionManager : MonoBehaviour
 
         else if (Event.current.Equals(Event.KeyboardEvent("space")) && currentSelect == 0)
         {
+            playerObject.GetComponent<InteractionManager>().whosTalking = "";
             currentSelect = 1;
-            sentenceIndex += 1;
-            promptPanel.GetComponent<PromptMan>().NextSentence();
+            playerObject.GetComponent<MovementManager>().enabled = true;
             spacePanel.SetActive(false);
-
+            dialogueHolder.GetComponent<Canvas>().enabled = false;
         }
-
-
     }
 }

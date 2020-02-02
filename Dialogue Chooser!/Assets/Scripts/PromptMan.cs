@@ -12,10 +12,7 @@ public class PromptMan : MonoBehaviour
     public bool isTyping;
     public GameObject spacePanel;
 
-    private void Start()
-    {
-        StartCoroutine(Type());
-    }
+
 
     IEnumerator Type()
     {

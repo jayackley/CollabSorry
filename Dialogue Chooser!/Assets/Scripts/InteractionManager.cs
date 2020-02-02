@@ -1,29 +1,46 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using TMPro;
 using UnityEngine;
 
 public class InteractionManager : MonoBehaviour {
 
     public GameObject dialogueHolder;
     public GameObject optionManager;
+    public GameObject promptPanel;
+    public GameObject promptText;
+    public GameObject playerObject;
+    public GameObject spacePanel;
+    public string whosTalking;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision is CircleCollider2D && collision.gameObject.tag == "RightBrother")
+        if (collision is CircleCollider2D && collision.gameObject.tag == "LeftBrother")
         {
-            dialogueHolder.SetActive(true);
-            optionManager.GetComponent<OptionManager>().sentenceIndex = 8;
+            dialogueHolder.GetComponent<Canvas>().enabled = true;
+            optionManager.GetComponent<OptionManager>().sentenceIndex = 0;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            promptText.GetComponent<TextMeshProUGUI>().color = new Color32(200, 200, 255, 255);
+            playerObject.GetComponent<MovementManager>().enabled = false;
+            playerObject.GetComponent<Animator>().SetBool("walkingwest", false);
+            playerObject.GetComponent<Animator>().SetBool("walkingeast", false);
+            whosTalking = "Demon";
+            spacePanel.SetActive(false);
+            collision.gameObject.GetComponent<CircleCollider2D>().enabled = false;
         }
-        else if (collision is CircleCollider2D && collision.gameObject.tag == "LeftBrother")
+        else if (collision is CircleCollider2D && collision.gameObject.tag == "RightBrother")
         {
-            dialogueHolder.SetActive(true);
-            optionManager.GetComponent<OptionManager>().sentenceIndex = 4;
+            dialogueHolder.GetComponent<Canvas>().enabled = true; 
+            optionManager.GetComponent<OptionManager>().sentenceIndex = 13;
+            promptPanel.GetComponent<PromptMan>().NextSentence();
+            promptText.GetComponent<TextMeshProUGUI>().color = new Color32(255,200,200,255);
+            playerObject.GetComponent<MovementManager>().enabled = false;
+            playerObject.GetComponent<Animator>().SetBool("walkingwest", false);
+            playerObject.GetComponent<Animator>().SetBool("walkingeast", false);
+            whosTalking = "Pal";
+            spacePanel.SetActive(false);
+            collision.gameObject.GetComponent<CircleCollider2D>().enabled = false;
         }
+
 
     }
 }
