@@ -1,6 +1,6 @@
 ﻿<Properties StartupConfiguration="{3AC45B3F-8E67-98F7-4F4B-89A8E305469A}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/OptionManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/InteractionManager.cs">
     <Files>
       <File FileName="Assets/Scripts/OptionManager.cs" Line="105" Column="75" />
       <File FileName="Assets/Scripts/ResponseMan.cs" Line="14" Column="1" />

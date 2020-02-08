@@ -25,17 +25,10 @@ public class PromptMan : MonoBehaviour
 
     public void NextSentence()
     {
-        if (optionManager.GetComponent<OptionManager>().sentenceIndex < sentences.Length)
-        {
-            textDisplay.text = "";
-            StartCoroutine(Type());
-        }
-        else
-        {
-            textDisplay.text = "";
-        }
-
+        textDisplay.text = "";
+        StartCoroutine(Type());
     }
+
     private void Update()
     {
         if(textDisplay.text == sentences[optionManager.GetComponent<OptionManager>().sentenceIndex]){
