@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/OptionManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/OptionManager.cs" Line="59" Column="65" />
+      <File FileName="Assets/Scripts/OptionManager.cs" Line="105" Column="75" />
       <File FileName="Assets/Scripts/ResponseMan.cs" Line="14" Column="1" />
       <File FileName="Assets/Scripts/PromptMan.cs" Line="15" Column="1" />
       <File FileName="Assets/Scripts/MovementManager.cs" Line="33" Column="27" />

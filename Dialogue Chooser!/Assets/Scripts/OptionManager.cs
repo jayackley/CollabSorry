@@ -20,6 +20,8 @@ public class OptionManager : MonoBehaviour
     public GameObject playerObject;
     public GameObject gremlinVoice;
     public GameObject palVoice;
+    public GameObject conscienceGremlin;
+    public GameObject applePal;
 
     void Start()
     {
@@ -39,6 +41,7 @@ public class OptionManager : MonoBehaviour
             optionTwo.SetActive(false);
             optionThree.SetActive(false);
             palVoice.GetComponent<AudioSource>().volume = 100;
+            applePal.GetComponent<Animator>().SetBool("istalking", true);
         }
 
         else if (promptPanel.GetComponent<PromptMan>().isTyping == true && playerObject.GetComponent<InteractionManager>().whosTalking == "Demon")
@@ -47,6 +50,7 @@ public class OptionManager : MonoBehaviour
             optionTwo.SetActive(false);
             optionThree.SetActive(false);
             gremlinVoice.GetComponent<AudioSource>().volume = 100;
+            conscienceGremlin.GetComponent<Animator>().SetBool("istalking", true);
         }
 
         else if (sentenceIndex == 4 || sentenceIndex == 5 || sentenceIndex == 6 || sentenceIndex == 7 || sentenceIndex == 8 || sentenceIndex == 9 || sentenceIndex == 10 || sentenceIndex == 11 || sentenceIndex == 12 || sentenceIndex == 17 || sentenceIndex == 18 ||  sentenceIndex == 19 || sentenceIndex == 20 || sentenceIndex == 21 || sentenceIndex == 22 || sentenceIndex == 23 || sentenceIndex == 24 || sentenceIndex == 25)
@@ -57,6 +61,8 @@ public class OptionManager : MonoBehaviour
             spacePanel.SetActive(true);
             palVoice.GetComponent<AudioSource>().volume = 0;
             gremlinVoice.GetComponent<AudioSource>().volume = 0;
+            conscienceGremlin.GetComponent<Animator>().SetBool("istalking", false);
+            applePal.GetComponent<Animator>().SetBool("istalking", false);
         }
 
         else if (currentSelect == 1 && promptPanel.GetComponent<PromptMan>().isTyping == false)
@@ -69,6 +75,8 @@ public class OptionManager : MonoBehaviour
             optionOne.GetComponent<Image>().color = UnityEngine.Color.red;
             optionTwo.GetComponent<Image>().color = UnityEngine.Color.blue;
             optionThree.GetComponent<Image>().color = UnityEngine.Color.blue;
+            conscienceGremlin.GetComponent<Animator>().SetBool("istalking", false);
+            applePal.GetComponent<Animator>().SetBool("istalking", false);
         }
         else if (currentSelect == 2 && promptPanel.GetComponent<PromptMan>().isTyping == false)
         {
@@ -80,6 +88,8 @@ public class OptionManager : MonoBehaviour
             optionOne.GetComponent<Image>().color = UnityEngine.Color.blue;
             optionTwo.GetComponent<Image>().color = UnityEngine.Color.red;
             optionThree.GetComponent<Image>().color = UnityEngine.Color.blue;
+            conscienceGremlin.GetComponent<Animator>().SetBool("istalking", false);
+            applePal.GetComponent<Animator>().SetBool("istalking", false);
         }
         else if (currentSelect == 3 && promptPanel.GetComponent<PromptMan>().isTyping == false)
         {
@@ -91,6 +101,8 @@ public class OptionManager : MonoBehaviour
             optionOne.GetComponent<Image>().color = UnityEngine.Color.blue;
             optionTwo.GetComponent<Image>().color = UnityEngine.Color.blue;
             optionThree.GetComponent<Image>().color = UnityEngine.Color.red;
+            conscienceGremlin.GetComponent<Animator>().SetBool("istalking", false);
+            applePal.GetComponent<Animator>().SetBool("istalking", false);
         }
         else if (currentSelect == 0)
         {

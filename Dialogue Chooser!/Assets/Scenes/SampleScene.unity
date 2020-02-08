@@ -3014,6 +3014,8 @@ MonoBehaviour:
   playerObject: {fileID: 1720581695}
   gremlinVoice: {fileID: 783760072}
   palVoice: {fileID: 929073509}
+  conscienceGremlin: {fileID: 717932625}
+  applePal: {fileID: 602265492}
 --- !u!1 &1801287195
 GameObject:
   m_ObjectHideFlags: 0

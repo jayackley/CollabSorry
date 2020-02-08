@@ -248,12 +248,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36c88505b87f4b9aa8b0a722a6bedb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHitPoints: 6
-  startingHitPoints: 6
+  maxHitPoints: 4
+  startingHitPoints: 4
   characterCategory: 1
   deathSpawn: {fileID: 1594630563893350, guid: f55260488faf4434fa0ec36b97dd9319, type: 2}
   damageStrength: 1
-  hitPoints: 6
+  hitPoints: 4
   Volume: 0.5
 --- !u!212 &212213613046954864
 SpriteRenderer:
