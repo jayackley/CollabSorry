@@ -1,0 +1,17 @@
+﻿<Properties StartupConfiguration="{AC0C1897-16C1-6243-B50F-9A6A109E81C5}|">
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SceneManagement.cs">
+    <Files>
+      <File FileName="Assets/SceneManagement.cs" Line="13" Column="6" />
+      <File FileName="Assets/Scripts/Managers/Dialogue.cs" Line="18" Column="1" />
+      <File FileName="Assets/Scripts/MonoBehaviors/MovementController.cs" Line="15" Column="22" />
+      <File FileName="Assets/Scripts/MonoBehaviors/Wander.cs" Line="23" Column="6" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
