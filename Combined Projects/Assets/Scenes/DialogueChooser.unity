@@ -197,10 +197,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textDisplay: {fileID: 252428911}
   sentences:
-  - Hello Conscience Demon
-  - Well... nice to meet you!
-  - You're like a ghost?
-  - I'm a bad person :(
+  - But I didn't do anything wrong!
+  - It was an accident!
+  - Isn't being sorry enough?
+  - I worry I'm a bad person.
   - 
   - 
   - 
@@ -210,10 +210,10 @@ MonoBehaviour:
   - 
   - 
   - 
-  - Hello Apple Pal!
-  - Yeah! Scrumptious!
-  - Sorry, I'll be nicer
-  - Hold still...
+  - I'm really sorry for that.
+  - You don't have to forgive me.
+  - That... was wrong of me.
+  - I should have been more careful.
   - 
   - 
   - 
@@ -250,15 +250,15 @@ RectTransform:
   m_GameObject: {fileID: 218033343}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.14575, y: 0.083021365, z: 1}
+  m_LocalScale: {x: 0.14574999, y: 0.08302136, z: 1}
   m_Children:
   - {fileID: 1449282041}
   m_Father: {fileID: 1049140835}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -291, y: 175}
+  m_AnchoredPosition: {x: -290.99997, y: 175}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &218033345
@@ -634,7 +634,7 @@ RectTransform:
   m_Children:
   - {fileID: 1876269818}
   m_Father: {fileID: 1049140835}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1301,32 +1301,32 @@ MonoBehaviour:
   optionManager: {fileID: 1735605724}
   textDisplay: {fileID: 1512432404}
   sentences:
-  - I'm Conscience Demon
-  - Hello Yourself!
-  - I'm here to haunt you
-  - Why would I do that?
-  - I enjoyed our time together
-  - Let's dance later
-  - Your tanktop is tacky!
-  - You'll find out later!
-  - There's no such thing, bye!
-  - You will fail
-  - I don't mind...
-  - Vibes can be misleading
-  - You'll get yours later...
-  - Hi I'm Apple Pal
-  - Doesn't this look delicious?
-  - Work on your attitude pal
-  - Yeah absolutely!
-  - You can't have any!
-  - I'll try not to get any on you!
-  - Oh Hell No
-  - I would certainly appreciate it
-  - You're the worst
-  - Actually we're done here
-  - I'm so excited...!
-  - I like joking around!
-  - He sounds fun!
+  - I'm a gremlin that represents your conscience.
+  - But your friend got hurt.
+  - What are you going to do make it right?
+  - As real as anything else.
+  - I hope you can learn from this, good bye.
+  - It matters a lot that you realize that now.
+  - One day you will be called to judge yourself.
+  - That's basically never the case.
+  - That will be scary, but I'm proud of you.
+  - I believe one has to hope so.
+  - Some amount of that is probably healthy.
+  - At least you didn't lose an arm.
+  - Your tank top is tacky.
+  - That was horrible - you really hurt me!
+  - I appreciate that, but that's just words.
+  - Yeah, but you literally threw a sword at me.
+  - No thanks to you, I could have died.
+  - Okay, I appreciate you giving me space.
+  - I don't think we should be friends anymore.
+  - Well, you're really an inconsiderate jerk.
+  - I guess that's the best I can expect from you.
+  - Please just let me look at my apple in peace.
+  - Actually... yeah, the bleeding looked kinda rad!
+  - It means a lot to hear you say that.
+  - That doesn't mean it didn't happen.
+  - I don't know how much you're getting out of this.
   typingSpeed: 0.02
   isTyping: 0
   spacePanel: {fileID: 471445118}
@@ -1847,10 +1847,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textDisplay: {fileID: 424354860}
   sentences:
-  - That's a bogus name
-  - I like your dancing!
-  - But I'm a good person!
-  - Seems like your vibe
+  - I regret hurting my friend.
+  - I should have taken responsibility for that.
+  - I guess I'll have to check in with them.
+  - This has been really hard for me.
   - 
   - 
   - 
@@ -1860,10 +1860,10 @@ MonoBehaviour:
   - 
   - 
   - 
-  - That's a wack name
-  - Nope - I'm allergic
-  - Not likely!
-  - Just kidding!
+  - You shouldn't have flinched!
+  - Well, that's all I have to offer.
+  - You should have dodged!
+  - It was an accident!
   - 
   - 
   - 
@@ -1962,8 +1962,8 @@ RectTransform:
   m_Children:
   - {fileID: 1735605725}
   - {fileID: 722237010}
-  - {fileID: 218033344}
   - {fileID: 471445119}
+  - {fileID: 218033344}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3100,10 +3100,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textDisplay: {fileID: 970180247}
   sentences:
-  - Don't make me feel bad about myself
-  - You're a weird bunny owl man!
-  - I'll haunt you back!
-  - Because you're a jerk!!!
+  - Is this even real?
+  - Who are you to judge me?!
+  - Is that even possible?
+  - You're super weird looking!
   - 
   - 
   - 
@@ -3113,10 +3113,10 @@ MonoBehaviour:
   - 
   - 
   - 
-  - Wanna see a cool sword trick?
-  - Fuck off bozo!
-  - Let's cut to the chase
-  - Then meet the Slicer!
+  - Woah, you got your arm back?!
+  - You're not being very kind to me.
+  - Yeah, but wasn't it super cool?
+  - No way, this is way too weird.
   - 
   - 
   - 
