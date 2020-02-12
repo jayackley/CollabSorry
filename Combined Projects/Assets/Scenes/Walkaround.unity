@@ -3258,6 +3258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueManager: {fileID: 1388853265}
   playerObject: {fileID: 429687139}
+  playerDead: 0
 --- !u!4 &650461432
 Transform:
   m_ObjectHideFlags: 0
@@ -12713,6 +12714,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114447314544194500, guid: 41265bea17e4f484796cdb50b93c348b,
+        type: 2}
+      propertyPath: sceneManager
+      value: 
+      objectReference: {fileID: 650461430}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41265bea17e4f484796cdb50b93c348b, type: 2}
   m_IsPrefabAsset: 0

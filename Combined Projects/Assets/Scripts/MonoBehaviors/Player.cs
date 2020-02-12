@@ -13,6 +13,8 @@ public class Player : Character
     public AudioClip itemGrab;
     public AudioClip gotHit;
     public bool hasSword;
+    public GameObject sceneManager;
+
 
     private void OnEnable()
     {
@@ -79,6 +81,7 @@ public class Player : Character
 
             if (hitPoints.value <= float.Epsilon)
             {
+                sceneManager.GetComponent<SceneManagement>().playerDead = true;
                 KillCharacter();
                 break;
             }

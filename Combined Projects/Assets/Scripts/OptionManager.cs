@@ -194,7 +194,7 @@ public class OptionManager : MonoBehaviour
         }
         else if (sentenceIndex == 2 && currentSelect == 1 && Event.current.Equals(Event.KeyboardEvent("space")) && promptPanel.GetComponent<PromptMan>().isTyping == false)
         {
-            sentenceIndex = -10;
+            sentenceIndex = 7;
             scoreObject.GetComponent<ScoreManager>().score -= 10;
             promptPanel.GetComponent<PromptMan>().NextSentence();
             currentSelect = 0;
